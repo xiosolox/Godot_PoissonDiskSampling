@@ -1,7 +1,27 @@
 extends Node
 
-class_name PoissonDisk
 
+class Cell :
+	var x = 0
+	var y = 0
+	var point = false
+	func getposition():
+		return(Vector2(x,y))
+	
+	
+	func is_point():
+		return point
+	
+	func get_point():
+		return (Vector2(x,y))
+	
+	func set_point(x_point,y_point,new_point = true):
+		x = x_point
+		y = y_point
+		point = new_point
+
+
+class_name PoissonDisk
 
 
 export var width = 1024
@@ -14,6 +34,7 @@ var rad
 
 
 func create ():
+	
 	
 	
 	var grid = Array() 
@@ -32,7 +53,7 @@ func create ():
 	for l in range(int(width / rad) + 2):
 		grid.append([])
 		for k in range(int(lenght / rad) + 2):
-			grid[l].append(Cells.new())
+			grid[l].append(Cell.new())
 	
 	randomize()
 	
@@ -43,9 +64,9 @@ func create ():
 	
 	grid[grid_pos.x][grid_pos.y].set_point(int(p_active[0].x),int(p_active[0].y),true)
 	
-	var cicle = true
+
 	
-	while (cicle):
+	while (p_active.size() != 0 ):
 		
 		randomize()
 		
@@ -166,7 +187,5 @@ func create ():
 		
 		if try == max_try :
 			p_active.remove(act_p)
-		if p_active.size() == 0:
-			cicle = false
 	
 	return (p_out)
