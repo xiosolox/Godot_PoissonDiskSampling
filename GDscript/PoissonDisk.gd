@@ -38,6 +38,7 @@ func create ():
 	
 	randomize()
 	
+	#create the first point and add it in the grid
 	p_active.append(Vector2(randi() % (width - 100) + 50 ,randi() % (lenght  - 100) + 50))
 	p_out.append(p_active[0])
 	
@@ -47,7 +48,7 @@ func create ():
 	
 
 	
-	while (p_active.size() != 0 ):
+	while (p_active.size() != 0 ): 
 		
 		randomize()
 		
@@ -78,6 +79,8 @@ func create ():
 				grid_pos.y = int (y_try / cellsize)
 				
 				if (grid[grid_pos.x][grid_pos.y] == -1):
+					
+					# test if the generated point it`s valid
 					
 					var test = [Vector2(-1,-1), Vector2(-1,0), Vector2(-1,+1), Vector2(0,-1),
 					Vector2(0,0), Vector2(0,+1),Vector2(+1,-1), Vector2(+1,0),Vector2(+1,+1)
