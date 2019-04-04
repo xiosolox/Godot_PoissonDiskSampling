@@ -23,9 +23,15 @@ _global_script_class_icons={
 config/name="PoissonDisk"
 run/main_scene="res://PoissonDisk.tscn"
 
+[display]
+
+window/size/width=1920
+window/size/height=1024
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=0
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
